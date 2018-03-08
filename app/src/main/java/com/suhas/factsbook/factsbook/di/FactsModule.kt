@@ -4,6 +4,7 @@ import com.suhas.factsbook.factsbook.facts.FactsDataContract
 import com.suhas.factsbook.factsbook.facts.FactsRemoteData
 import com.suhas.factsbook.factsbook.facts.FactsRepository
 import com.suhas.factsbook.factsbook.facts.FactsService
+import com.suhas.factsbook.factsbook.facts.ui.FactsAdapter
 import com.suhas.factsbook.factsbook.network.Scheduler
 import dagger.Module
 import dagger.Provides
@@ -13,6 +14,10 @@ import javax.inject.Singleton
 
 @Module
 class FactsModule {
+
+    @Singleton
+    @Provides
+    fun factsAdapter() : FactsAdapter = FactsAdapter()
 
     @Singleton
     @Provides
