@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(NetworkModule::class, AppModule::class))
+@Component(modules = arrayOf(NetworkModule::class, AppModule::class, FactsModule::class))
 interface AppComponent {
 
     fun context(): Context
