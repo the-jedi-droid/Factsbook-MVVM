@@ -8,19 +8,19 @@
         android:id="@+id/factTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginStart="@dimen/row_margin_start"
+        android:layout_marginEnd="@dimen/row_margin_end"
+        android:layout_marginBottom="@dimen/row_margin_bottom"
         android:textStyle="bold"
-        android:textSize="24sp"/>
+        android:textSize="@dimen/textsize_title"/>
 
     <TextView
         android:id="@+id/factDescriptionText"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"/>
+        android:layout_marginStart="@dimen/row_margin_start"
+        android:layout_marginEnd="@dimen/row_margin_end"
+        android:layout_marginBottom="@dimen/row_margin_bottom"/>
 
     <ImageView
         android:id="@+id/factImage"

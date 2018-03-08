@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="row_margin_start">4dp</dimen>
+    <dimen name="row_margin_end">4dp</dimen>
+    <dimen name="row_margin_bottom">4dp</dimen>
+    <dimen name="textsize_title">24sp</dimen>
+</resources>
