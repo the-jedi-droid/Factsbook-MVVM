@@ -47,7 +47,7 @@ class FactsActivity : AppCompatActivity() {
         factsViewModel.getFacts()
         loadFacts()
 
-        swipeToRefreshLayout.setOnRefreshListener { loadFacts() }
+        swipeToRefreshLayout.setOnRefreshListener { factsViewModel.getFacts() }
     }
 
     private fun loadFacts() {
