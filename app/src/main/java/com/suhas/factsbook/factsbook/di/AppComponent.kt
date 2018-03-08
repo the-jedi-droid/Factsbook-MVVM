@@ -1,6 +1,8 @@
 package com.suhas.factsbook.factsbook.di
 
 import android.content.Context
+import com.suhas.factsbook.factsbook.facts.ui.FactsAdapter
+import com.suhas.factsbook.factsbook.facts.vm.FactsViewModelFactory
 import com.suhas.factsbook.factsbook.network.Scheduler
 import dagger.Component
 import retrofit2.Retrofit
@@ -15,5 +17,9 @@ interface AppComponent {
     fun retrofit(): Retrofit
 
     fun scheduler(): Scheduler
+
+    fun adapter(): FactsAdapter
+
+    fun factsViewModelFactory() : FactsViewModelFactory
 
 }

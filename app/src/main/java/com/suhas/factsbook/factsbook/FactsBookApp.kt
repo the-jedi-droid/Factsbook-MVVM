@@ -2,15 +2,14 @@ package com.suhas.factsbook.factsbook
 
 import android.app.Application
 import com.facebook.stetho.Stetho
-import com.suhas.factsbook.factsbook.di.AppComponent
-import com.suhas.factsbook.factsbook.di.AppModule
-import com.suhas.factsbook.factsbook.di.DaggerAppComponent
+import com.suhas.factsbook.factsbook.di.*
 
 class FactsBookApp : Application() {
 
-    companion object {
-        lateinit var appComponent: AppComponent
-    }
+    lateinit var appComponent: AppComponent
+
+    val instanceComponent: InstanceComponent
+        get() = DaggerInstanceComponent.builder().appComponent(appComponent).build()
 
     override fun onCreate() {
         super.onCreate()

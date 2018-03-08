@@ -5,6 +5,7 @@ import com.suhas.factsbook.factsbook.facts.FactsRemoteData
 import com.suhas.factsbook.factsbook.facts.FactsRepository
 import com.suhas.factsbook.factsbook.facts.FactsService
 import com.suhas.factsbook.factsbook.facts.ui.FactsAdapter
+import com.suhas.factsbook.factsbook.facts.vm.FactsViewModelFactory
 import com.suhas.factsbook.factsbook.network.Scheduler
 import dagger.Module
 import dagger.Provides
@@ -35,5 +36,9 @@ class FactsModule {
     @Provides
     fun factsRepo(remote: FactsDataContract.Remote, scheduler: Scheduler, compositeDisposable: CompositeDisposable) : FactsRepository
             = FactsRepository(remote, scheduler, compositeDisposable)
+
+    @Singleton
+    @Provides
+    fun factsViewModelFactory(repository: FactsRepository, disposable: CompositeDisposable) : FactsViewModelFactory = FactsViewModelFactory(repository, disposable)
 
 }
