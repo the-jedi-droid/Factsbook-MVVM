@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.suhas.factsbook.factsbook.R
 import com.suhas.factsbook.factsbook.model.Row
 import kotlinx.android.synthetic.main.layout_fact.view.*
@@ -46,6 +48,7 @@ class FactsAdapter : RecyclerView.Adapter<FactsAdapter.FactViewHolder>() {
             row.imageHref?.let {
                 Glide.with(context)
                         .load(row.imageHref)
+                        .apply(RequestOptions().skipMemoryCache(true))
                         .into(factImage)
             }
         }
