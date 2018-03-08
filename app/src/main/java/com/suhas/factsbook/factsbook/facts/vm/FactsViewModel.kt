@@ -15,7 +15,7 @@ class FactsViewModel(private val repository: FactsDataContract.Repository, priva
     }
 
     fun getFacts() {
-        if (postsOutcome.value == null) repository.getFacts()
+        repository.getFacts()
     }
 
     override fun onCleared() {
