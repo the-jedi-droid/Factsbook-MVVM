@@ -2,7 +2,7 @@ package com.suhas.factsbook.factsbook.common.extensions
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import com.suhas.factsbook.factsbook.network.Outcome
+import com.suhas.factsbook.factsbook.network.Resource
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 
@@ -12,20 +12,20 @@ fun <T> PublishSubject<T>.toLiveData(compositeDisposable: CompositeDisposable): 
     return data
 }
 
-fun <T> PublishSubject<Outcome<T>>.failed(e: Throwable) {
+fun <T> PublishSubject<Resource<T>>.failed(e: Throwable) {
     with(this){
         loading(false)
-        onNext(Outcome.failure(e))
+        onNext(Resource.failure(e))
     }
 }
 
-fun <T> PublishSubject<Outcome<T>>.success(t: T) {
+fun <T> PublishSubject<Resource<T>>.success(t: T) {
     with(this){
         loading(false)
-        onNext(Outcome.success(t))
+        onNext(Resource.success(t))
     }
 }
 
-fun <T> PublishSubject<Outcome<T>>.loading(isLoading: Boolean) {
-    this.onNext(Outcome.loading(isLoading))
+fun <T> PublishSubject<Resource<T>>.loading(isLoading: Boolean) {
+    this.onNext(Resource.loading(isLoading))
 }
