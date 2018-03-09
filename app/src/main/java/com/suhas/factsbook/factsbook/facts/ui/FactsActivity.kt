@@ -13,7 +13,7 @@ import com.suhas.factsbook.factsbook.R
 import com.suhas.factsbook.factsbook.facts.vm.FactsViewModel
 import com.suhas.factsbook.factsbook.facts.vm.FactsViewModelFactory
 import com.suhas.factsbook.factsbook.model.Facts
-import com.suhas.factsbook.factsbook.network.Outcome
+import com.suhas.factsbook.factsbook.network.Resource
 import kotlinx.android.synthetic.main.activity_facts.*
 import java.io.IOException
 import javax.inject.Inject
@@ -51,18 +51,18 @@ class FactsActivity : AppCompatActivity() {
     }
 
     private fun loadFacts() {
-        factsViewModel.postsOutcome.observe(this, Observer<Outcome<Facts>> {
+        factsViewModel.factsResource.observe(this, Observer<Resource<Facts>> {
             when (it) {
-                is Outcome.Progress -> swipeToRefreshLayout.isRefreshing = it.loading
+                is Resource.Progress -> swipeToRefreshLayout.isRefreshing = it.loading
 
-                is Outcome.Success -> {
+                is Resource.Success -> {
                     Log.d("==>", "inside onSuccess")
                     setToolBar(it.data.title)
                     factsList.recycledViewPool.clear()
                     (factsList.adapter as FactsAdapter).rows = it.data.rows
                 }
 
-                is Outcome.Failure -> {
+                is Resource.Failure -> {
                     Log.d("==>", "inside failure")
                     if (it.e is IOException)
                         Toast.makeText(context, R.string.need_internet_posts, Toast.LENGTH_LONG).show()
